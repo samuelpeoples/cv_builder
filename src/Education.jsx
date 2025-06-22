@@ -42,42 +42,50 @@ export default function Education() {
 			{EducationsArr.map((education, index) => (
 				<div className='roleDetails' key={education.id}>
 					<hr style={{ width: "600px" }} />
-					<label htmlFor={`eduName${index}`}>Place of Education:</label>
-					<input
-						type='text'
-						name={`eduName${index}`}
-						id={`eduName${index}`}
-						value={education.place}
-						onChange={(e) => handleEducationChange(index, "place", e.target.value)}
-						required
-					/>
-					<label htmlFor={`eduStudy${index}`}>Title of Study:</label>
-					<input
-						type='text'
-						name={`eduStudy${index}`}
-						id={`eduStudy${index}`}
-						value={education.study}
-						onChange={(e) => handleEducationChange(index, "study", e.target.value)}
-						required
-					/>
-					<label htmlFor={`eduPeriodStart${index}`}>Date of Study Start:</label>
-					<input
-						type='date'
-						name={`eduPeriodStart${index}`}
-						id={`eduPeriodStart${index}`}
-						value={education.period}
-						onChange={(e) => handleEducationChange(index, "periodStart", e.target.value)}
-						required
-					/>
-					<label htmlFor={`eduPeriodEnd${index}`}>Date of Study End:</label>
-					<input
-						type='date'
-						name={`eduPeriodEnd${index}`}
-						id={`eduPeriodEnd${index}`}
-						value={education.period}
-						onChange={(e) => handleEducationChange(index, "periodEnd", e.target.value)}
-						required
-					/>
+					<div>
+						<label htmlFor={`eduName${index}`}>Place of Education:</label>
+						<input
+							type='text'
+							name={`eduName${index}`}
+							id={`eduName${index}`}
+							value={education.place}
+							onChange={(e) => handleEducationChange(index, "place", e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<label htmlFor={`eduStudy${index}`}>Title of Study:</label>
+						<input
+							type='text'
+							name={`eduStudy${index}`}
+							id={`eduStudy${index}`}
+							value={education.study}
+							onChange={(e) => handleEducationChange(index, "study", e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<label htmlFor={`eduPeriodStart${index}`}>Date of Study Start:</label>
+						<input
+							type='date'
+							name={`eduPeriodStart${index}`}
+							id={`eduPeriodStart${index}`}
+							value={education.period}
+							onChange={(e) => handleEducationChange(index, "periodStart", e.target.value)}
+							required
+						/>
+					</div>
+					<div>
+						<label htmlFor={`eduPeriodEnd${index}`}>Date of Study End:</label>
+						<input
+							type='date'
+							name={`eduPeriodEnd${index}`}
+							id={`eduPeriodEnd${index}`}
+							value={education.period}
+							onChange={(e) => handleEducationChange(index, "periodEnd", e.target.value)}
+							required
+						/>
+					</div>
 				</div>
 			))}
 			<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addEducation}>

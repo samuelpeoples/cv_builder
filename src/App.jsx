@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import Skills from "./Skills";
 import Education from "./Education";
+import Roles from "./Roles";
 
 export default function App() {
-	const [numOfRoles, setNumOfRoles] = useState(0);
-	const Roles = () =>
-		Array.from({ length: numOfRoles }).map((_item, index) => (
-			<RoleDetails count={numOfRoles} index={index} key={crypto.randomUUID()} />
-		));
+	// const [numOfRoles, setNumOfRoles] = useState(0);
+	// const Roles = () =>
+	// 	Array.from({ length: numOfRoles }).map((_item, index) => (
+	// 		<RoleDetails count={numOfRoles} index={index} key={crypto.randomUUID()} />
+	// 	));
 
 	const [numOfRefs, setNumOfRefs] = useState(0);
 	const Refs = () =>
@@ -30,8 +31,8 @@ export default function App() {
 
 				<Skills />
 				<Education />
-
-				<fieldset id='roles'>
+				<Roles />
+				{/* <fieldset id='roles'>
 					<legend>Experience</legend>
 					<Roles />
 					<button
@@ -41,7 +42,7 @@ export default function App() {
 						onClick={() => setNumOfRoles(numOfRoles + 1)}>
 						Add previous role
 					</button>
-				</fieldset>
+				</fieldset> */}
 
 				<fieldset id='roles'>
 					<legend>References</legend>
@@ -63,14 +64,6 @@ function InputField({ name = "name", className = "", id = name, type = "text", l
 			<label for={name}>{labelText}:</label>
 			<input type={type} name={name} id={id} required />
 		</div>
-	);
-}
-
-function InputFieldNoLabel({ name = "name", className = "", id = name, type = "text", labelText = "Label Text" }) {
-	return (
-		<>
-			<input type={type} name={name} id={id} required />
-		</>
 	);
 }
 

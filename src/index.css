@@ -89,6 +89,7 @@ fieldset {
 	min-width: 150px;
 }
 .roleDetails > div > input,
+.roleDetails > div > textarea,
 .roleDetails > li > input {
 	width: 400px;
 }
