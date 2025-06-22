@@ -88,7 +88,8 @@ fieldset {
 	text-align: left;
 	min-width: 150px;
 }
-.roleDetails > div > input {
+.roleDetails > div > input,
+.roleDetails > li > input {
 	width: 400px;
 }
 
