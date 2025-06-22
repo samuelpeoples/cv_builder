@@ -8,6 +8,11 @@ function App() {
 		Array.from({ length: numOfRoles }).map((_item, index) => (
 			<RoleDetails count={numOfRoles} index={index} key={crypto.randomUUID()} />
 		));
+	const [numOfRefs, setNumOfRefs] = useState(0);
+	const Refs = () =>
+		Array.from({ length: numOfRefs }).map((_item, index) => (
+			<RefDetails count={numOfRefs} index={index} key={crypto.randomUUID()} />
+		));
 
 	return (
 		<div id='content'>
@@ -20,56 +25,25 @@ function App() {
 					<InputField name='mobile' className='personalInput' type='tel' labelText='Mobile' required />
 					<InputField name='email' className='personalInput' type='email' labelText='Email' required />
 					<InputField name='address' className='personalInput' type='text' labelText='Address' />
-					<InputField
-						name='refName1'
-						className='personalInput'
-						type='text'
-						labelText='Reference 1 Name'
-						required
-					/>
-					<InputField
-						name='refMob1'
-						className='personalInput'
-						type='tel'
-						labelText='Reference 1 Mobile'
-						required
-					/>
-					<InputField
-						name='refEmail1'
-						className='personalInput'
-						type='email'
-						labelText='Reference 1 Email'
-						required
-					/>
-					<InputField
-						name='refName2'
-						className='personalInput'
-						type='text'
-						labelText='Reference 2 Name'
-						required
-					/>
-					<InputField
-						name='refMob2'
-						className='personalInput'
-						type='tel'
-						labelText='Reference 2 Mobile'
-						required
-					/>
-					<InputField
-						name='refEmail2'
-						className='personalInput'
-						type='email'
-						labelText='Reference 2 Email'
-						required
-					/>
 				</fieldset>
 
 				<fieldset id='roles'>
 					<legend>Prior Experience</legend>
-					<p>{numOfRoles}</p>
 					<Roles />
-					<button type='button' name='addRoleBtn' onClick={() => setNumOfRoles(numOfRoles + 1)}>
-						Make another role button
+					<button
+						type='button'
+						id='addRoleBtn'
+						name='addRoleBtn'
+						onClick={() => setNumOfRoles(numOfRoles + 1)}>
+						Add previous role
+					</button>
+				</fieldset>
+
+				<fieldset id='roles'>
+					<legend>Your References</legend>
+					<Refs />
+					<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={() => setNumOfRefs(numOfRefs + 1)}>
+						Add reference
 					</button>
 				</fieldset>
 			</form>
@@ -89,15 +63,35 @@ function InputField({ name = "name", className = "", id = name, type = "text", l
 function RoleDetails({ index }) {
 	const roleTitle = `roleTitle${index}`;
 	const rolePeriod = `rolePeriod${index}`;
+	const roleCurrent = `roleCurrent${index}`;
 	const roleCompany = `roleCompany${index}`;
 	const roleDescription = `roleDesc${index}`;
 	return (
 		<div className='roleDetails'>
-			<h3>Role {index + 1}</h3>
+			<hr style={{ width: "600px" }} />
+			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
 			<InputField name={roleTitle} type='text' labelText='Role Title' required />
 			<InputField name={rolePeriod} type='date' labelText='Role Period' required />
+			<InputField name={roleCurrent} type='checkbox' labelText='Is Role Current' required />
 			<InputField name={roleCompany} type='text' labelText='Role Company' required />
 			<InputField name={roleDescription} type='text' labelText='Role Description' required />
+		</div>
+	);
+}
+
+function RefDetails({ index }) {
+	const refName = `refName${index}`;
+	const refTitle = `refTitle${index}`;
+	const refMobile = `refMobile${index}`;
+	const refEmail = `refEmail${index}`;
+	return (
+		<div className='roleDetails'>
+			<hr style={{ width: "600px" }} />
+			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
+			<InputField name={refName} type='text' labelText='Reference Name' required />
+			<InputField name={refTitle} type='text' labelText='Reference Title' required />
+			<InputField name={refMobile} type='tel' labelText='Reference Mobile' required />
+			<InputField name={refEmail} type='email' labelText='Reference Email' required />
 		</div>
 	);
 }

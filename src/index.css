@@ -22,10 +22,10 @@ body {
 }
 
 #root {
-	/* max-width: 1280px; */
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	place-items: center;
 	min-height: 100dvh;
 }
 
@@ -34,6 +34,15 @@ body {
 	padding-bottom: 100px;
 	flex-grow: 1;
 	overflow: scroll;
+	min-width: 400px;
+	width: 100%;
+	max-width: 800px;
+}
+
+fieldset {
+	margin: 0px;
+	margin-bottom: 10px;
+	border-color: #242424;
 }
 
 #personalDetails {
@@ -42,6 +51,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	flex-wrap: wrap;
+	flex-grow: 0;
 	gap: 5px;
 }
 
@@ -55,8 +65,10 @@ body {
 #roles {
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-items: center;
+	align-items: center;
 	flex-wrap: wrap;
+	gap: 20px;
 }
 
 .roleDetails {
@@ -65,15 +77,19 @@ body {
 	place-items: center;
 	gap: 12px;
 }
+.roleDetails:first-of-type > hr {
+	visibility: collapse;
+}
 .roleDetails > div {
-	width: 100%;
+	width: max-content;
 }
 .roleDetails > div > label {
-  display: inline-block;
-	width: 150px;
+	display: inline-block;
+	text-align: left;
+	min-width: 150px;
 }
 .roleDetails > div > input {
-	width: 75vw;
+	width: 400px;
 }
 
 a {
@@ -109,6 +125,7 @@ h1 {
 }
 
 button {
+	width: fit-content;
 	border-radius: 8px;
 	border: 1px solid transparent;
 	padding: 0.6em 1.2em;
