@@ -13,7 +13,12 @@ function App() {
 		Array.from({ length: numOfRefs }).map((_item, index) => (
 			<RefDetails count={numOfRefs} index={index} key={crypto.randomUUID()} />
 		));
-
+	const [numOfEdu, setNumOfEdu] = useState(0);
+	const Education = () =>
+		Array.from({ length: numOfEdu }).map((_item, index) => (
+			<EduDetails count={numOfEdu} index={index} key={crypto.randomUUID()} />
+		));
+	
 	return (
 		<div id='content'>
 			<form action='post'>
@@ -28,7 +33,19 @@ function App() {
 				</fieldset>
 
 				<fieldset id='roles'>
-					<legend>Prior Experience</legend>
+					<legend>Education</legend>
+					<Education />
+					<button
+						type='button'
+						id='addRoleBtn'
+						name='addRoleBtn'
+						onClick={() => setNumOfEdu(numOfEdu + 1)}>
+						Add prior education
+					</button>
+				</fieldset>
+
+				<fieldset id='roles'>
+					<legend>Experience</legend>
 					<Roles />
 					<button
 						type='button'
@@ -40,12 +57,14 @@ function App() {
 				</fieldset>
 
 				<fieldset id='roles'>
-					<legend>Your References</legend>
+					<legend>References</legend>
 					<Refs />
 					<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={() => setNumOfRefs(numOfRefs + 1)}>
 						Add reference
 					</button>
 				</fieldset>
+
+				<button type="submit">Submit</button>
 			</form>
 		</div>
 	);
@@ -56,6 +75,22 @@ function InputField({ name = "name", className = "", id = name, type = "text", l
 		<div className={className}>
 			<label for={name}>{labelText}:</label>
 			<input type={type} name={name} id={id} required />
+		</div>
+	);
+}
+
+function EduDetails({ index }) {
+	const eduName = `roleTitle${index}`;
+	const eduStudy = `eduStudy${index}`;
+	const eduPeriod = `eduPeriod${index}`;
+	return (
+		<div className='roleDetails'>
+			{/* { index == 0 ? null : <hr style={{ width: "600px" }} /> } */}
+			<hr style={{ width: "600px" }} /> 
+			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
+			<InputField name={eduName} type='text' labelText='Place of Education' required />
+			<InputField name={eduStudy} type='text' labelText='Title of Study' required />
+			<InputField name={eduPeriod} type='date' labelText='Date of Study' required />
 		</div>
 	);
 }
@@ -82,16 +117,18 @@ function RoleDetails({ index }) {
 function RefDetails({ index }) {
 	const refName = `refName${index}`;
 	const refTitle = `refTitle${index}`;
+	const refCompany = `refCompany${index}`;
 	const refMobile = `refMobile${index}`;
 	const refEmail = `refEmail${index}`;
 	return (
 		<div className='roleDetails'>
 			<hr style={{ width: "600px" }} />
 			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
-			<InputField name={refName} type='text' labelText='Reference Name' required />
-			<InputField name={refTitle} type='text' labelText='Reference Title' required />
-			<InputField name={refMobile} type='tel' labelText='Reference Mobile' required />
-			<InputField name={refEmail} type='email' labelText='Reference Email' required />
+			<InputField name={refName} type='text' labelText='Name' required />
+			<InputField name={refTitle} type='text' labelText='Title' required />
+			<InputField name={refCompany} type='text' labelText='Company' required />
+			<InputField name={refMobile} type='tel' labelText='Mobile' required />
+			<InputField name={refEmail} type='email' labelText='Email' required />
 		</div>
 	);
 }
