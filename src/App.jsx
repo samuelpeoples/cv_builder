@@ -1,5 +1,6 @@
-import { use, useState } from "react";
+import { useEffect, useState } from "react";
 import Skills from "./Skills";
+import Education from "./Education";
 
 export default function App() {
 	const [numOfRoles, setNumOfRoles] = useState(0);
@@ -12,11 +13,6 @@ export default function App() {
 	const Refs = () =>
 		Array.from({ length: numOfRefs }).map((_item, index) => (
 			<RefDetails count={numOfRefs} index={index} key={crypto.randomUUID()} />
-		));
-	const [numOfEdu, setNumOfEdu] = useState(0);
-	const Education = () =>
-		Array.from({ length: numOfEdu }).map((_item, index) => (
-			<EduDetails count={numOfEdu} index={index} key={crypto.randomUUID()} />
 		));
 
 	return (
@@ -33,14 +29,7 @@ export default function App() {
 				</fieldset>
 
 				<Skills />
-
-				<fieldset id='roles'>
-					<legend>Education</legend>
-					<Education />
-					<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={() => setNumOfEdu(numOfEdu + 1)}>
-						Add prior education
-					</button>
-				</fieldset>
+				<Education />
 
 				<fieldset id='roles'>
 					<legend>Experience</legend>
@@ -82,27 +71,6 @@ function InputFieldNoLabel({ name = "name", className = "", id = name, type = "t
 		<>
 			<input type={type} name={name} id={id} required />
 		</>
-	);
-}
-
-
-
-function EduDetails({ index }) {
-	const eduName = `roleTitle${index}`;
-	const eduStudy = `eduStudy${index}`;
-	const eduPeriod = `eduPeriod${index}`;
-	return (
-		<div className='roleDetails'>
-			{/* { index == 0 ? null : <hr style={{ width: "600px" }} /> } */}
-			<hr style={{ width: "600px" }} />
-			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
-			<label for={eduName}>Place of Education:</label>
-			<input type={"text"} name={eduName} id={eduName} required />
-			<label for={eduStudy}>Title of Study:</label>
-			<input type={"text"} name={eduStudy} id={eduStudy} required />
-			<label for={eduPeriod}>Date of Study:</label>
-			<input type={"date"} name={eduPeriod} id={eduPeriod} required />
-		</div>
 	);
 }
 
