@@ -1,18 +1,13 @@
 import { use, useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import Skills from "./Skills";
 
-function App() {
+export default function App() {
 	const [numOfRoles, setNumOfRoles] = useState(0);
 	const Roles = () =>
 		Array.from({ length: numOfRoles }).map((_item, index) => (
 			<RoleDetails count={numOfRoles} index={index} key={crypto.randomUUID()} />
 		));
-	const [numOfSkills, setNumOfSkills] = useState(0);
-	const Skills = () =>
-		Array.from({ length: numOfSkills }).map((_item, index) => (
-			<SkillsDetails count={numOfSkills} index={index} key={crypto.randomUUID()} />
-		));
+
 	const [numOfRefs, setNumOfRefs] = useState(0);
 	const Refs = () =>
 		Array.from({ length: numOfRefs }).map((_item, index) => (
@@ -21,7 +16,7 @@ function App() {
 	const [numOfEdu, setNumOfEdu] = useState(0);
 	const Education = () =>
 		Array.from({ length: numOfEdu }).map((_item, index) => (
-				<EduDetails count={numOfEdu} index={index} key={crypto.randomUUID()} />
+			<EduDetails count={numOfEdu} index={index} key={crypto.randomUUID()} />
 		));
 
 	return (
@@ -37,21 +32,7 @@ function App() {
 					<InputField name='address' className='personalInput' type='text' labelText='Address' />
 				</fieldset>
 
-				<fieldset id='roles'>
-					<legend>Skills</legend>
-					<div >
-						<ul className='roleDetails'>
-							<Skills />
-						</ul>
-					</div>
-					<button
-						type='button'
-						id='addRoleBtn'
-						name='addRoleBtn'
-						onClick={() => setNumOfSkills(numOfSkills + 1)}>
-						+
-					</button>
-				</fieldset>
+				<Skills />
 
 				<fieldset id='roles'>
 					<legend>Education</legend>
@@ -104,16 +85,7 @@ function InputFieldNoLabel({ name = "name", className = "", id = name, type = "t
 	);
 }
 
-function SkillsDetails({ index }) {
-	const skill = `eduStudy${index}`;
-	return (
-		<>
-			<li>
-				<InputFieldNoLabel name={skill} type='text' labelText='Skill' required />
-			</li>
-		</>
-	);
-}
+
 
 function EduDetails({ index }) {
 	const eduName = `roleTitle${index}`;
@@ -124,9 +96,12 @@ function EduDetails({ index }) {
 			{/* { index == 0 ? null : <hr style={{ width: "600px" }} /> } */}
 			<hr style={{ width: "600px" }} />
 			{/* <h3 style={{ margin: 0 }}>Role {index + 1}</h3> */}
-			<InputField name={eduName} type='text' labelText='Place of Education' required />
-			<InputField name={eduStudy} type='text' labelText='Title of Study' required />
-			<InputField name={eduPeriod} type='date' labelText='Date of Study' required />
+			<label for={eduName}>Place of Education:</label>
+			<input type={"text"} name={eduName} id={eduName} required />
+			<label for={eduStudy}>Title of Study:</label>
+			<input type={"text"} name={eduStudy} id={eduStudy} required />
+			<label for={eduPeriod}>Date of Study:</label>
+			<input type={"date"} name={eduPeriod} id={eduPeriod} required />
 		</div>
 	);
 }
@@ -168,5 +143,3 @@ function RefDetails({ index }) {
 		</div>
 	);
 }
-
-export default App;
