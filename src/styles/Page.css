@@ -1,0 +1,13 @@
+#pageDisplay {
+	overflow: scroll;
+	width: 437px;
+	height: 614px;
+}
+#page {
+	box-shadow: 0 0 0 4px rgb(132, 231, 218);
+	background-color: aliceblue;
+	width: inherit;
+	height: inherit;
+	bottom: 20%;
+	position: fixed;
+}

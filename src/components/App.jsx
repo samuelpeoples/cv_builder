@@ -30,6 +30,9 @@ export default function App() {
 				<Reference />
 				<button type='submit'>Submit</button>
 			</form>
+			<div id='pageDisplay'>
+				<div id='page'></div>
+			</div>
 		</div>
 	);
 }

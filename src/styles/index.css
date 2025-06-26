@@ -30,13 +30,17 @@ body {
 }
 
 #content {
+	display: flex;
+	gap: 20px;
+	justify-content: center;
+	align-content: center;
 	padding: 10px;
 	padding-bottom: 100px;
 	flex-grow: 1;
 	overflow: scroll;
 	min-width: 400px;
 	width: 100%;
-	max-width: 800px;
+	max-width: 1000px;
 }
 
 fieldset {
@@ -48,10 +52,12 @@ fieldset {
 #personalDetails {
 	max-height: 200px;
 	display: flex;
+	flex: auto;
 	flex-direction: column;
 	align-items: center;
+
 	flex-wrap: wrap;
-	flex-grow: 0;
+
 	gap: 5px;
 }
 
@@ -66,6 +72,7 @@ fieldset {
 	justify-items: center;
 	align-items: center;
 	flex-wrap: wrap;
+	min-width: 400px;
 	gap: 20px;
 }
 
@@ -90,8 +97,13 @@ fieldset {
 .roleDetails > div > textarea,
 .roleDetails > li > input {
 	width: 400px;
+	max-width: 200px;
 }
-
+hr {
+	max-width: 600px;
+	width: 90%;
+	min-width: 200px;
+}
 a {
 	font-weight: 500;
 	color: #646cff;

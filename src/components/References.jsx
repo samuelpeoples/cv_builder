@@ -42,7 +42,7 @@ export default function Reference() {
 			<legend>References</legend>
 			{ReferencesArr.map((Reference, index) => (
 				<div className='roleDetails' key={Reference.id}>
-					<hr style={{ width: "600px" }} />
+					<hr />
 					<div>
 						<label htmlFor={`refName${index}`}>Name:</label>
 						<input

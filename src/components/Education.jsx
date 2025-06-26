@@ -41,7 +41,7 @@ export default function Education() {
 			<legend>Education</legend>
 			{EducationsArr.map((education, index) => (
 				<div className='roleDetails' key={education.id}>
-					<hr style={{ width: "600px" }} />
+					<hr />
 					<div>
 						<label htmlFor={`eduName${index}`}>Place of Education:</label>
 						<input

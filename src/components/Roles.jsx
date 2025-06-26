@@ -43,7 +43,7 @@ export default function Roles() {
 			<legend>Prior Experience</legend>
 			{RolesArr.map((Role, index) => (
 				<div className='roleDetails' key={Role.id}>
-					<hr style={{ width: "600px" }} />
+					<hr />
 					<div>
 						<label htmlFor={`roleTitle${index}`}>Title:</label>
 						<input
