@@ -39,7 +39,7 @@ export default function Roles() {
 	}
 
 	return (
-		<fieldset id='roles'>
+		<fieldset id='detailSet'>
 			<legend>Prior Experience</legend>
 			{RolesArr.map((Role, index) => (
 				<div className='roleDetails' key={Role.id}>

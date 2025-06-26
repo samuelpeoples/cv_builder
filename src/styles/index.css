@@ -57,12 +57,10 @@ fieldset {
 
 .personalInput {
 	max-width: 200px;
-}
-.personalInput > * {
 	width: 170px;
 }
 
-#roles {
+#detailSet {
 	display: flex;
 	flex-direction: column;
 	justify-items: center;

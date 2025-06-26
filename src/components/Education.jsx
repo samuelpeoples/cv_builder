@@ -37,7 +37,7 @@ export default function Education() {
 	}
 
 	return (
-		<fieldset id='roles'>
+		<fieldset id='detailSet'>
 			<legend>Education</legend>
 			{EducationsArr.map((education, index) => (
 				<div className='roleDetails' key={education.id}>

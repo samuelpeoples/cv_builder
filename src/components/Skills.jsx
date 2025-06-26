@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 
 // Helper function to create a new skill object with a unique id
 function createSkill(value = "") {
-	return { id: crypto.randomUUID(), value };
+	return {
+		id: crypto.randomUUID(),
+		value,
+	};
 }
 
 export default function Skills() {
@@ -30,22 +33,37 @@ export default function Skills() {
 		setSkillsArr([...skillsArr, createSkill()]);
 	}
 
+
+	function deleteSkill(index) {
+		const firstHalf = skillsArr.slice(0, index);
+		const secondHalf = skillsArr.slice(index + 1);
+		const updated = firstHalf.concat(secondHalf);
+		setSkillsArr(updated);
+
+		// setSkillsArr(skillsArr => (skillsArr.filter((_, i) => i !== index)));
+	}
+
 	return (
-		<fieldset id='roles'>
+		<fieldset id='detailSet'>
 			<legend>Skills</legend>
 			<div>
 				<ul className='roleDetails'>
 					{/* Render each skill input field */}
 					{skillsArr.map((skill, index) => (
 						<li key={skill.id}>
-							<input
-								type='text'
-								name={`skill${index}`}
-								id={`skill${index}`}
-								value={skill.value}
-								onChange={(e) => handleSkillChange(index, e.target.value)}
-								required
-							/>
+							<div>
+								<input
+									type='text'
+									name={`skill${index}`}
+									id={`skill${index}`}
+									value={skill.value}
+									onChange={(e) => handleSkillChange(index, e.target.value)}
+									required
+								/>
+								<button type='button' className='deleteButton' onClick={(e) => deleteSkill(index)}>
+									X
+								</button>
+							</div>
 						</li>
 					))}
 				</ul>
