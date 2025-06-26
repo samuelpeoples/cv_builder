@@ -33,7 +33,6 @@ export default function Skills() {
 		setSkillsArr([...skillsArr, createSkill()]);
 	}
 
-
 	function deleteSkill(index) {
 		const firstHalf = skillsArr.slice(0, index);
 		const secondHalf = skillsArr.slice(index + 1);

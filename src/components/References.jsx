@@ -37,6 +37,15 @@ export default function Reference() {
 		setReferencesArr([...ReferencesArr, createReference()]);
 	}
 
+	function deleteReference(index) {
+		const firstHalf = ReferencesArr.slice(0, index);
+		const secondHalf = ReferencesArr.slice(index + 1);
+		const updated = firstHalf.concat(secondHalf);
+		setReferencesArr(updated);
+
+		// setSkillsArr(skillsArr => (skillsArr.filter((_, i) => i !== index)));
+	}
+
 	return (
 		<fieldset id='detailSet'>
 			<legend>References</legend>
@@ -98,6 +107,9 @@ export default function Reference() {
 							required
 						/>
 					</div>
+					<button type='button' className='deleteButton' onClick={(e) => deleteReference(index)}>
+						X
+					</button>
 				</div>
 			))}
 			<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addReference}>

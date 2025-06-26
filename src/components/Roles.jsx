@@ -38,6 +38,15 @@ export default function Roles() {
 		setRolesArr([...RolesArr, createRole()]);
 	}
 
+	function deleteRole(index) {
+		const firstHalf = RolesArr.slice(0, index);
+		const secondHalf = RolesArr.slice(index + 1);
+		const updated = firstHalf.concat(secondHalf);
+		setRolesArr(updated);
+
+		// setSkillsArr(skillsArr => (skillsArr.filter((_, i) => i !== index)));
+	}
+
 	return (
 		<fieldset id='detailSet'>
 			<legend>Prior Experience</legend>
@@ -111,6 +120,9 @@ export default function Roles() {
 							required
 						/>
 					</div>
+					<button type='button' className='deleteButton' onClick={(e) => deleteRole(index)}>
+						X
+					</button>
 				</div>
 			))}
 			<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addRole}>

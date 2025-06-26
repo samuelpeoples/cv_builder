@@ -36,6 +36,15 @@ export default function Education() {
 		setEducationsArr([...EducationsArr, createEducation()]);
 	}
 
+	function deleteEducation(index) {
+		const firstHalf = EducationsArr.slice(0, index);
+		const secondHalf = EducationsArr.slice(index + 1);
+		const updated = firstHalf.concat(secondHalf);
+		setEducationsArr(updated);
+
+		// setSkillsArr(skillsArr => (skillsArr.filter((_, i) => i !== index)));
+	}
+
 	return (
 		<fieldset id='detailSet'>
 			<legend>Education</legend>
@@ -86,6 +95,9 @@ export default function Education() {
 							required
 						/>
 					</div>
+					<button type='button' className='deleteButton' onClick={(e) => deleteEducation(index)}>
+						X
+					</button>
 				</div>
 			))}
 			<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addEducation}>
