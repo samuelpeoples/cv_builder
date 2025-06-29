@@ -1,13 +1,23 @@
 #pageDisplay {
-	overflow: scroll;
+	overflow: visible;
 	width: 437px;
 	height: 614px;
+	padding: 4px;
+	box-sizing: border-box;
 }
 #page {
 	box-shadow: 0 0 0 4px rgb(132, 231, 218);
 	background-color: aliceblue;
 	width: inherit;
 	height: inherit;
-	bottom: 20%;
-	position: fixed;
+	bottom: 0%;
+	/* position: fixed; */
+}
+
+#pageContents{
+	color: black;
+	margin: 0;
+	padding: 4px;
+	box-sizing: border-box;
+	font-size: smaller;
 }

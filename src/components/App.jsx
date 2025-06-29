@@ -3,6 +3,7 @@ import Skills from "./Skills";
 import Education from "./Education";
 import Roles from "./Roles";
 import Reference from "./References";
+import Page from "./Page";
 
 export default function App() {
 	return (
@@ -31,7 +32,9 @@ export default function App() {
 				<button type='submit'>Submit</button>
 			</form>
 			<div id='pageDisplay'>
-				<div id='page'></div>
+				<div id='page'>
+					<Page />
+				</div>
 			</div>
 		</div>
 	);
