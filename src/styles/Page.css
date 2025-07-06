@@ -1,24 +1,25 @@
 #pageDisplay {
 	overflow: visible;
-	width: 437px;
-	height: 614px;
+
 	padding: 4px;
 	box-sizing: border-box;
+	height: 100vh;
+	width: 100%;
 }
 #page {
+	width: 437px;
+	height: 614px;
 	box-shadow: 0 0 0 4px rgb(132, 231, 218);
 	background-color: aliceblue;
-	width: inherit;
-	height: inherit;
 	bottom: 0%;
 	/* position: fixed; */
 }
 
-#pageContents{
+#pageContents {
 	color: black;
 	margin: 0;
 	padding: 4px;
 	box-sizing: border-box;
-	font-size: smaller;
+	font-size: x-small;
 	text-align: left;
 }

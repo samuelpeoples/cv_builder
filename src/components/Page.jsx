@@ -5,10 +5,11 @@ export default function Page() {
 
 	function loadAll() {
 		return {
-			skills: JSON.parse(localStorage.getItem("skillsArr" || "[]")),
-			education: JSON.parse(localStorage.getItem("EducationsArr" || "[]")),
-			roles: JSON.parse(localStorage.getItem("RolesArr" || "[]")),
-			references: JSON.parse(localStorage.getItem("ReferencesArr" || "[]")),
+			details: JSON.parse(localStorage.getItem("detailsArr") || "{}") || {},
+			skills: JSON.parse(localStorage.getItem("skillsArr") || "[]") || [],
+			education: JSON.parse(localStorage.getItem("EducationsArr") || "[]") || [],
+			roles: JSON.parse(localStorage.getItem("RolesArr") || "[]") || [],
+			references: JSON.parse(localStorage.getItem("ReferencesArr") || "[]") || [],
 		};
 	}
 
@@ -22,12 +23,19 @@ export default function Page() {
 
 	return (
 		<div id='pageContents'>
-			<h3>Name</h3>
-
+			<h3>{data.details.fullName}</h3>
+			<h4>{data.details.title}</h4>
+			<div>
+				<h4>Details</h4>
+				<p>{data.details.dob}</p>
+				<p>{data.details.mobile}</p>
+				<p>{data.details.email}</p>
+				<p>{data.details.address}</p>
+			</div>
 			<div>
 				Skills
 				<ul>
-					{data.skills.map((skill) => (
+					{(data.skills || []).map((skill) => (
 						<li key={skill.id}>{skill.value}</li>
 					))}
 				</ul>
@@ -36,7 +44,7 @@ export default function Page() {
 			<div>
 				Education
 				<ul>
-					{data.education.map((edu) => (
+					{(data.education || []).map((edu) => (
 						<div key={edu.id}>
 							<li>{edu.place}</li>
 							<li>{edu.study}</li>
@@ -51,7 +59,7 @@ export default function Page() {
 			<div>
 				Roles
 				<ul>
-					{data.roles.map((role) => (
+					{(data.roles || []).map((role) => (
 						<div key={role.id}>
 							<li>{role.title}</li>
 							<li>
@@ -68,7 +76,7 @@ export default function Page() {
 			<div>
 				References
 				<ul>
-					{data.references.map((ref, index) => (
+					{(data.references || []).map((ref, index) => (
 						<div key={ref.id}>
 							<li>{ref.name}</li>
 							<li>{ref.title}</li>
