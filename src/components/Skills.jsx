@@ -19,6 +19,7 @@ export default function Skills() {
 	// Persist skillsArr to localStorage whenever it changes
 	useEffect(() => {
 		localStorage.setItem("skillsArr", JSON.stringify(skillsArr));
+		window.dispatchEvent(new Event("storageUpdate"));
 	}, [skillsArr]);
 
 	// Update the value of a skill at a specific index

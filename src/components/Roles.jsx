@@ -24,6 +24,7 @@ export default function Roles() {
 	// Persist RolesArr to localStorage whenever it changes
 	useEffect(() => {
 		localStorage.setItem("RolesArr", JSON.stringify(RolesArr));
+		window.dispatchEvent(new Event("storageUpdate"));
 	}, [RolesArr]);
 
 	// Update the value of a specific field for a specific Role entry

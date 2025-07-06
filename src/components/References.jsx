@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-// Helper to create a new Reference entry with unique id and empty fields
+// Helper to create a new References entry with unique id and empty fields
 function createReference() {
 	return {
 		id: crypto.randomUUID(),
@@ -12,8 +12,8 @@ function createReference() {
 	};
 }
 
-export default function Reference() {
-	// Initialize ReferencesArr state from localStorage if available, otherwise start with one empty Reference
+export default function References() {
+	// Initialize ReferencesArr state from localStorage if available, otherwise start with one empty References
 	const [ReferencesArr, setReferencesArr] = useState(() => {
 		const saved = localStorage.getItem("ReferencesArr");
 		if (saved) return JSON.parse(saved);
@@ -23,16 +23,17 @@ export default function Reference() {
 	// Persist ReferencesArr to localStorage whenever it changes
 	useEffect(() => {
 		localStorage.setItem("ReferencesArr", JSON.stringify(ReferencesArr));
+		window.dispatchEvent(new Event("storageUpdate"));
 	}, [ReferencesArr]);
 
-	// Update the value of a specific field for a specific Reference entry
+	// Update the value of a specific field for a specific References entry
 	function handleReferenceChange(index, field, value) {
 		const updated = [...ReferencesArr];
 		updated[index] = { ...updated[index], [field]: value };
 		setReferencesArr(updated);
 	}
 
-	// Add a new empty Reference to the list
+	// Add a new empty References to the list
 	function addReference() {
 		setReferencesArr([...ReferencesArr, createReference()]);
 	}
@@ -49,8 +50,8 @@ export default function Reference() {
 	return (
 		<fieldset id='detailSet'>
 			<legend>References</legend>
-			{ReferencesArr.map((Reference, index) => (
-				<div className='roleDetails' key={Reference.id}>
+			{ReferencesArr.map((References, index) => (
+				<div className='roleDetails' key={References.id}>
 					<hr />
 					<div>
 						<label htmlFor={`refName${index}`}>Name:</label>
@@ -58,7 +59,7 @@ export default function Reference() {
 							type='text'
 							name={`refName${index}`}
 							id={`refName${index}`}
-							value={Reference.name}
+							value={References.name}
 							onChange={(e) => handleReferenceChange(index, "name", e.target.value)}
 							required
 						/>
@@ -69,7 +70,7 @@ export default function Reference() {
 							type='text'
 							name={`refTitle${index}`}
 							id={`refTitle${index}`}
-							value={Reference.title}
+							value={References.title}
 							onChange={(e) => handleReferenceChange(index, "title", e.target.value)}
 							required
 						/>
@@ -80,7 +81,7 @@ export default function Reference() {
 							type='text'
 							name={`refCompany${index}`}
 							id={`refCompany${index}`}
-							value={Reference.company}
+							value={References.company}
 							onChange={(e) => handleReferenceChange(index, "company", e.target.value)}
 							required
 						/>
@@ -91,7 +92,7 @@ export default function Reference() {
 							type='tel'
 							name={`refMobile${index}`}
 							id={`refMobile${index}`}
-							value={Reference.mobile}
+							value={References.mobile}
 							onChange={(e) => handleReferenceChange(index, "mobile", e.target.value)}
 							required
 						/>
@@ -102,7 +103,7 @@ export default function Reference() {
 							type='email'
 							name={`refEmail${index}`}
 							id={`refEmail${index}`}
-							value={Reference.email}
+							value={References.email}
 							onChange={(e) => handleReferenceChange(index, "email", e.target.value)}
 							required
 						/>
@@ -113,7 +114,7 @@ export default function Reference() {
 				</div>
 			))}
 			<button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addReference}>
-				Add Reference
+				Add References
 			</button>
 		</fieldset>
 	);

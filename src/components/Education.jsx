@@ -22,6 +22,7 @@ export default function Education() {
 	// Persist EducationsArr to localStorage whenever it changes
 	useEffect(() => {
 		localStorage.setItem("EducationsArr", JSON.stringify(EducationsArr));
+		window.dispatchEvent(new Event("storageUpdate"));
 	}, [EducationsArr]);
 
 	// Update the value of a specific field for a specific education entry
@@ -79,7 +80,7 @@ export default function Education() {
 							type='date'
 							name={`eduPeriodStart${index}`}
 							id={`eduPeriodStart${index}`}
-							value={education.period}
+							value={education.periodStart}
 							onChange={(e) => handleEducationChange(index, "periodStart", e.target.value)}
 							required
 						/>
@@ -90,7 +91,7 @@ export default function Education() {
 							type='date'
 							name={`eduPeriodEnd${index}`}
 							id={`eduPeriodEnd${index}`}
-							value={education.period}
+							value={education.periodEnd}
 							onChange={(e) => handleEducationChange(index, "periodEnd", e.target.value)}
 							required
 						/>

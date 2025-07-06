@@ -13,14 +13,19 @@ export default function App() {
 					<legend>Your Details</legend>
 					<label for='name'>Name</label>
 					<input name='name' className='personalInput' type='text' required />
+					
 					<label for='positionTitle'>Current Title</label>
 					<input name='positionTitle' className='personalInput' type='text' />
+
 					<label for='dob'>Date of Birth</label>
 					<input name='dob' className='personalInput' type='date' required />
+
 					<label for='mobile'>Mobile</label>
 					<input name='mobile' className='personalInput' type='tel' required />
+
 					<label for='email'>Email</label>
 					<input name='email' className='personalInput' type='email' required />
+
 					<label for='address'>Address</label>
 					<input name='address' className='personalInput' type='text' />
 				</fieldset>
@@ -29,7 +34,7 @@ export default function App() {
 				<Education />
 				<Roles />
 				<Reference />
-				<button type='submit'>Submit</button>
+				<button onSubmit={e => e.preventDefault()} type='submit'>Submit</button>
 			</form>
 			<div id='pageDisplay'>
 				<div id='page'>
