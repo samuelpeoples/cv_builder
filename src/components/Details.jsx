@@ -41,6 +41,7 @@ export default function Details() {
             <label htmlFor='fullName'>Name*</label>
             <input
                 name='fullName'
+                title="Full Name"
                 className='personalInput'
                 type='text'
                 value={detailsArr.fullName}
@@ -51,25 +52,28 @@ export default function Details() {
             <label htmlFor='title'>Current Title</label>
             <input
                 name='title'
+                title="Position Title"
                 className='personalInput'
                 type='text'
                 value={detailsArr.title}
                 onChange={handleChange}
             />
 
-            <label htmlFor='dob'>Date of Birth*</label>
+            <label htmlFor='dob'>Date of Birth</label>
             <input
                 name='dob'
+                title="Date of Birth"
                 className='personalInput'
                 type='date'
                 value={detailsArr.dob}
                 onChange={handleChange}
-                required
+                
             />
 
             <label htmlFor='mobile'>Mobile*</label>
             <input
                 name='mobile'
+                title="Mobile Number"
                 className='personalInput'
                 type='tel'
                 value={detailsArr.mobile}
@@ -80,6 +84,7 @@ export default function Details() {
             <label htmlFor='email'>Email*</label>
             <input
                 name='email'
+                title="Email Address"
                 className='personalInput'
                 type='email'
                 value={detailsArr.email}
@@ -87,9 +92,10 @@ export default function Details() {
                 required
             />
 
-            <label htmlFor='address'>Address</label>
+            <label htmlFor='address'>Location</label>
             <input
                 name='address'
+                title="Address"
                 className='personalInput'
                 type='text'
                 value={detailsArr.address}

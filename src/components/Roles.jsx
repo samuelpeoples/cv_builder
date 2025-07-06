@@ -138,7 +138,7 @@ export default function Roles() {
                     </button>
                 </div>
             ))}
-            <button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addRole}>
+            <button type='button' className='addRoleButton' name='addRoleButton' onClick={addRole}>
                 Add prior Role
             </button>
         </fieldset>

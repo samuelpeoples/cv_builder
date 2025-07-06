@@ -57,6 +57,7 @@ export default function References() {
                         <label htmlFor={`refName${index}`}>Name:</label>
                         <input
                             type='text'
+                            title="Reference Name"
                             name={`refName${index}`}
                             id={`refName${index}`}
                             value={References.name}
@@ -68,6 +69,7 @@ export default function References() {
                         <label htmlFor={`refTitle${index}`}>Title:</label>
                         <input
                             type='text'
+                            title="Reference Title"
                             name={`refTitle${index}`}
                             id={`refTitle${index}`}
                             value={References.title}
@@ -79,6 +81,7 @@ export default function References() {
                         <label htmlFor={`refCompany${index}`}>Company:</label>
                         <input
                             type='text'
+                            title="Reference Company"
                             name={`refCompany${index}`}
                             id={`refCompany${index}`}
                             value={References.company}
@@ -90,6 +93,7 @@ export default function References() {
                         <label htmlFor={`refMobile${index}`}>Mobile:</label>
                         <input
                             type='tel'
+                            title="Reference Mobile"
                             name={`refMobile${index}`}
                             id={`refMobile${index}`}
                             value={References.mobile}
@@ -101,6 +105,7 @@ export default function References() {
                         <label htmlFor={`refEmail${index}`}>Email:</label>
                         <input
                             type='email'
+                            title="Reference Email"
                             name={`refEmail${index}`}
                             id={`refEmail${index}`}
                             value={References.email}
@@ -113,7 +118,7 @@ export default function References() {
                     </button>
                 </div>
             ))}
-            <button type='button' id='addRoleBtn' name='addRoleBtn' onClick={addReference}>
+            <button type='button' className='addRoleButton' name='addRoleButton' onClick={addReference}>
                 Add References
             </button>
         </fieldset>

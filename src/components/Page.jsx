@@ -1,4 +1,7 @@
 import { useEffect, useState } from "react";
+import * as faIcons from "@fortawesome/react-fontawesome";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import Details from "./Details";
 
 export default function Page() {
 	const [data, setData] = useState(loadAll());
@@ -23,58 +26,60 @@ export default function Page() {
 
 	return (
 		<div id='pageContents'>
-			<h3>{data.details.fullName}</h3>
-			<h4>{data.details.title}</h4>
-			<div>
+			<h2>{data.details.fullName}</h2>
+			<h3>{data.details.title}</h3>
+			<div id='pageContentsDetails'>
 				<h4>Details</h4>
 				<p>{data.details.dob}</p>
-				<p>{data.details.mobile}</p>
-				<p>{data.details.email}</p>
-				<p>{data.details.address}</p>
+				<p>Mobile: {data.details.mobile}</p>
+				<p>Email: {data.details.email}</p>
+				<p>Location: {data.details.address}</p>
 			</div>
-			<div>
-				Skills
-				<ul>
+
+			<div id='pageContentsSkills'>
+				<h4>Skills</h4>
+				<ul style={{  paddingLeft: "24px" }}>
 					{(data.skills || []).map((skill) => (
 						<li key={skill.id}>{skill.value}</li>
 					))}
 				</ul>
 			</div>
 
-			<div>
-				Education
-				<ul>
-					{(data.education || []).map((edu) => (
-						<div key={edu.id}>
-							<li>{edu.place}</li>
-							<li>{edu.study}</li>
-							<li>
-								{edu.periodStart} - {edu.periodEnd}
-							</li>
-						</div>
-					))}
-				</ul>
+			<div id='pageContentsEdu'>
+				<h4>Education</h4>
+				{(data.education || []).map((edu) => (
+					<div key={edu.id}>
+						<p>
+							<strong>
+								{edu.place} - {edu.study}
+							</strong>
+							<br />
+							{edu.periodStart} - {edu.periodEnd}
+							<p>{edu.description}</p>
+						</p>
+					</div>
+				))}
 			</div>
 
-			<div>
-				Roles
-				<ul>
-					{(data.roles || []).map((role) => (
-						<div key={role.id}>
-							<li>{role.title}</li>
-							<li>
-								{role.periodStart} - {role.periodEnd}
-							</li>
-							<li>{role.current}</li>
-							<li>{role.company}</li>
-							<li>{role.description}</li>
-						</div>
-					))}
-				</ul>
+			<div id='pageContentsRoles'>
+				<h4>Roles</h4>
+
+				{(data.roles || []).map((role) => (
+					<div key={role.id}>
+						<p>
+							<strong>
+								{role.title} - {role.company}
+							</strong>
+							<br />
+							{role.periodStart} - {role.periodEnd}
+						</p>
+						<p>{role.description}</p>
+					</div>
+				))}
 			</div>
 
-			<div>
-				References
+			<div id='pageContentsRefs'>
+				<h4>References</h4>
 				<ul>
 					{(data.references || []).map((ref, index) => (
 						<div key={ref.id}>

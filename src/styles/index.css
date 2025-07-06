@@ -86,12 +86,16 @@ fieldset {
 	visibility: collapse;
 }
 .roleDetails > div {
+	display: flex;
 	width: max-content;
 }
 .roleDetails > div > label {
 	display: inline-block;
 	text-align: left;
 	min-width: 150px;
+}
+input {
+	min-height: 20px;
 }
 .roleDetails > div > input,
 .roleDetails > div > textarea,
@@ -148,8 +152,30 @@ button {
 	cursor: pointer;
 	transition: border-color 0.25s;
 }
+.deleteButton {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 100%;
+	padding: 0.4em;
+	margin-left: 10px;
+	line-height: 8px;
+	background-color: #ff4d4d;
+	color: white;
+	border-color: #ff4d4d;
+}
+.addRoleButton {
+	width: fit-content;
+	height: fit-content;
+	border-radius: 15px;
+	padding: 0.6em 0.8em;
+	margin-left: 10px;
+	line-height: 8px;
+	background-color: #4d5fff;
+	color: white;
+	border-color: #4d85ff;
+}
 button:hover {
-	border-color: #646cff;
+	border-color: #64b4ff;
 }
 button:focus,
 button:focus-visible {
